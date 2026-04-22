@@ -1,0 +1,217 @@
+import "@/styles/globals.css";
+import { Metadata, Viewport } from "next";
+import clsx from "clsx";
+import Script from "next/script";
+
+import { Providers } from "./providers";
+
+import { siteConfig } from "@/config/site";
+import { fontSans } from "@/config/fonts";
+import { Navbar } from "@/components/navbar";
+import { CookieBanner } from "@/components/cookieBanner";
+
+export const metadata: Metadata = {
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [
+    "sport virtuali",
+    "community",
+    "pronostici",
+    "betting",
+    "italia",
+    "virtual sports",
+    "scommesse",
+    "brevetto marcatori",
+    "calcio",
+    "tipster",
+    "analisi statistiche",
+    "pronostici calcio",
+    "scommesse sportive",
+    "community italiana",
+  ],
+  authors: [{ name: "Virtual Bar News" }],
+  creator: "Virtual Bar News",
+  publisher: "Virtual Bar News",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "it_IT",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    url: "https://virtualbarnews-client.vercel.app",
+    images: [
+      {
+        url: "https://virtualbarnews-client.vercel.app/images/virtualBarSportLogo-bgremoved.png",
+        width: 1200,
+        height: 630,
+        alt: "Virtual Bar News - Community italiana di pronostici sportivi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [
+      "https://virtualbarnews-client.vercel.app/images/virtualBarSportLogo-bgremoved.png",
+    ],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+  alternates: {
+    canonical: "https://virtualbarnews-client.vercel.app",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Virtual Bar News",
+    url: "https://virtualbarnews-client.vercel.app",
+    logo: "https://virtualbarnews-client.vercel.app/images/virtualBarSportLogo-bgremoved.png",
+    description: siteConfig.description,
+    foundingDate: "2024",
+    industry: "Analisi Sportive e Pronostici",
+    areaServed: "IT",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "IT",
+    },
+    sameAs: [
+      siteConfig.links.telegram,
+      siteConfig.links.instagram,
+      siteConfig.links.tiktok,
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "info@virtualbarsport.it",
+      contactType: "customer service",
+      availableLanguage: "Italian",
+    },
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Virtual Bar News",
+    url: "https://virtualbarnews-client.vercel.app",
+    description: siteConfig.description,
+    inLanguage: "it-IT",
+    publisher: {
+      "@type": "Organization",
+      name: "Virtual Bar News",
+    },
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Brevetto Marcatori - Pronostici Calcio",
+    description:
+      "Pronostici calcio basati su statistiche ultra-dettagliate e analisi avanzate per campionati minori e marcatori sconosciuti",
+    provider: {
+      "@type": "Organization",
+      name: "Virtual Bar News",
+    },
+    areaServed: "IT",
+    serviceType: "Analisi Sportive",
+    audience: {
+      "@type": "Audience",
+      name: "Appassionati di scommesse sportive italiani",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "EUR",
+      description: "Accesso gratuito alla community Telegram",
+    },
+  };
+
+  return (
+    <html suppressHydrationWarning lang="it">
+      <head>
+        <Script
+          id="gtm-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MRLJ68QS');`,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+          type="application/ld+json"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+          type="application/ld+json"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(serviceSchema),
+          }}
+          type="application/ld+json"
+        />
+      </head>
+      <body
+        className={clsx(
+          "min-h-screen text-foreground bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
+        <noscript>
+          <iframe
+            height="0"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MRLJ68QS"
+            style={{ display: "none", visibility: "hidden" }}
+            width="0"
+            title="Google Tag Manager"
+          />
+        </noscript>
+        <Providers themeProps={{ attribute: "class", defaultTheme: "system" }}>
+          <div className="relative flex flex-col min-h-screen">
+            <Navbar />
+            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+              {children}
+            </main>
+            <CookieBanner />
+          </div>
+        </Providers>
+      </body>
+    </html>
+  );
+}
