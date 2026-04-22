@@ -17,6 +17,7 @@ import { Input } from "@heroui/input";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
+import { RedirectLink } from "@/components/redirect-link";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -118,10 +119,9 @@ export const Navbar = () => {
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex">
           <Button
-            isExternal
-            as={Link}
+            as={RedirectLink}
             className="text-sm font-normal text-default-600 bg-default-100"
-            href={siteConfig.links.telegram}
+            href={siteConfig.links.telegramHeader}
             startContent={<HeartFilledIcon className="text-danger" />}
             variant="flat"
           >

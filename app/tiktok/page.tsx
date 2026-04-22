@@ -1,4 +1,3 @@
-import { Link } from "@heroui/link";
 import { button as buttonStyles } from "@heroui/theme";
 import { Divider } from "@heroui/divider";
 
@@ -9,6 +8,7 @@ import HeroCards, { ShowTelegramPreviewImage } from "@/components/heroCards";
 import DocsCard from "@/components/docsCard";
 import FeatureList from "@/components/featureList";
 import { Footer } from "@/components/footer";
+import { RedirectLink } from "@/components/redirect-link";
 
 export default function TikTokPage() {
   return (
@@ -57,18 +57,17 @@ export default function TikTokPage() {
               </div>
 
               <div className="flex flex-col gap-4 mt-6">
-                <Link
-                  isExternal
+                <RedirectLink
+                  href={siteConfig.links.telegramHero}
                   className={buttonStyles({
                     variant: "shadow",
                     radius: "full",
                     color: "primary",
                   })}
-                  href={siteConfig.links.telegramForTikTok}
                 >
                   <TelegramIcon size={20} />
                   ENTRA NELLA COMMUNITY
-                </Link>
+                </RedirectLink>
               </div>
             </div>
           </div>
@@ -149,18 +148,17 @@ export default function TikTokPage() {
               </div>
 
               <div className="flex flex-col gap-4 mt-8">
-                <Link
-                  isExternal
+                <RedirectLink
+                  href={siteConfig.links.telegramHero2}
                   className={buttonStyles({
                     variant: "shadow",
                     radius: "full",
                     color: "primary",
                   })}
-                  href={siteConfig.links.telegramForTikTok}
                 >
                   <TelegramIcon size={20} />
                   ENTRA NELLA COMMUNITY
-                </Link>
+                </RedirectLink>
               </div>
             </div>
           </div>
@@ -227,19 +225,17 @@ export default function TikTokPage() {
                 alto, con giocate spesso più semplici di quanto sembri.
               </div>
               <div className="flex flex-col sm:flex-row gap-4 mt-6 sm:items-center">
-                <Link
-                  isExternal
+                <RedirectLink
+                  href={siteConfig.links.telegramHero3}
                   className={buttonStyles({
                     variant: "shadow",
                     radius: "full",
                     color: "primary",
                   })}
-                  href={siteConfig.links.telegramForTikTok}
                 >
-                  {/* contenuto del link */}
                   <TelegramIcon size={20} />
                   SCOPRI IL BREVETTO MARCATORI
-                </Link>
+                </RedirectLink>
               </div>
             </div>
           </div>
@@ -283,18 +279,17 @@ export default function TikTokPage() {
           </div>
         </div>
         <div className="flex flex-col gap-4 mt-8">
-          <Link
-            isExternal
+          <RedirectLink
+            href={siteConfig.links.telegramCta}
             className={buttonStyles({
               variant: "shadow",
               radius: "full",
               color: "primary",
             })}
-            href={siteConfig.links.telegramForTikTok}
           >
             <TelegramIcon size={20} />
             ENTRA ORA!
-          </Link>
+          </RedirectLink>
         </div>
       </section>
       <Footer />

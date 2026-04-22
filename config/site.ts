@@ -49,5 +49,11 @@ export const siteConfig = {
     telegram: "https://t.me/+EERgveyf5l80YTZk",
     telegramForTikTok: "https://t.me/+zg2gclG2TT82NWY8",
     tiktok: "https://www.tiktok.com/@virtualbar.it",
+    // Tracked CTA links (uno per bottone)
+    telegramHeader: "https://hub.theacestrategy.com/join/wDltfqbuG3",
+    telegramHero: "https://hub.theacestrategy.com/join/XkFWHNumzd",
+    telegramHero2: "https://hub.theacestrategy.com/join/u9mxhiNvsD",
+    telegramHero3: "https://hub.theacestrategy.com/join/u3CmFTQDth",
+    telegramCta: "https://hub.theacestrategy.com/join/RuJHwZqobS",
   },
 };
