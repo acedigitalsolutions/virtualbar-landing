@@ -3,7 +3,6 @@
 A modern web application for the first Italian community dedicated to entertainment and information about Sports and Virtual Sports.
 
 ## 🚀 Features
-
 - **Modern Stack**: Built with Next.js 15, TypeScript, and App Router
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 - **Component Library**: HeroUI for consistent and accessible UI components
